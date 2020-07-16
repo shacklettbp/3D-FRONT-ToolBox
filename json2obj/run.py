@@ -5,6 +5,7 @@ import math
 import os,argparse
 import math
 import igl
+from shutil import copyfile
 
 def split_path(paths):
     filepath,tempfilename = os.path.split(paths)

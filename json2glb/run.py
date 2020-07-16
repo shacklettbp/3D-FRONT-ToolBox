@@ -87,6 +87,14 @@ for m in files:
             cur_vertex = 0
             total_indices = 0
             for index_tuple in zip(pidx, uidx, nidx):
+                position_idx, uv_idx, normal_idx = index_tuple
+
+                position_idx = min(position_idx, len(p) - 1)
+                uv_idx = min(uv_idx, len(u) - 1)
+                normal_idx = min(normal_idx, len(n) - 1)
+
+                index_tuple = (position_idx, uv_idx, normal_idx)
+
                 if index_tuple in visited:
                     index_data.extend(struct.pack("I", visited[index_tuple]))
                 else:
